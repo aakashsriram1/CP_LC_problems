@@ -8,16 +8,18 @@ class Solution(object):
         def dfs(r,c): 
             if image[r][c] == newColor: 
                 image[r][c] = color
-                if r >=1: 
+                if r >= 1: 
                     dfs(r-1,c)
                 if r+1 < R: 
                     dfs(r+1,c)
-                if c>= 1: 
+                if c >= 1: 
                     dfs(r,c-1)
                 if c+1 < C: 
                     dfs(r,c+1)
         dfs(sr,sc)
         return image
+        
+
         
         """
         :type image: List[List[int]]
