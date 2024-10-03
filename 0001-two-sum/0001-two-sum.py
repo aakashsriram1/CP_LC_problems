@@ -1,11 +1,13 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        mapped_values = {}
-        for i in range(len(nums)): 
+        hashset = {}
+        for i in range(len(nums)):
             complement = target - nums[i]
-            if complement in mapped_values: 
-                return[mapped_values[complement],i]
-            mapped_values[nums[i]] = i 
+            if complement in hashset: 
+                return [hashset[complement],i]
+            hashset[nums[i]] = i
+            
+            
             
             
             
