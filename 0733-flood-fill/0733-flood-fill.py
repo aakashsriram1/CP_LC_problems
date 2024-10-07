@@ -1,26 +1,23 @@
 class Solution(object):
     def floodFill(self, image, sr, sc, color):
-        R = len(image)
-        C = len(image[0])
-        newColor = image[sr][sc]
-        if newColor == color:
-            return image 
-        def dfs(r,c): 
-            if image[r][c] == newColor: 
-                image[r][c] = color
-                if r >= 1: 
-                    dfs(r-1,c)
-                if r+1 < R: 
-                    dfs(r+1,c)
-                if c >= 1: 
-                    dfs(r,c-1)
-                if c+1 < C: 
-                    dfs(r,c+1)
-        dfs(sr,sc)
-        return image
+        starting = image[sr][sc] 
+        self.dfs(image,sr,sc,color,starting)
+        return image  
         
-
+    def dfs(self,image,sr,sc,color,starting):
+        #basecase 
+        if sr < 0 or sr >= len(image) or sc < 0 or sc >= len(image[0]) or image[sr][sc] == color or image[sr][sc] != starting:
+            return
         
+        #otherwise
+        image[sr][sc] = color
+        self.dfs(image,sr+1,sc,color,starting)
+        self.dfs(image,sr-1,sc,color,starting)
+        self.dfs(image,sr,sc+1,color,starting)
+        self.dfs(image,sr,sc-1,color,starting)
+            
+ 
+    
         """
         :type image: List[List[int]]
         :type sr: int
@@ -28,4 +25,5 @@ class Solution(object):
         :type color: int
         :rtype: List[List[int]]
         """
+        
         
