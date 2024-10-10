@@ -1,12 +1,15 @@
 class Solution(object):
     def groupAnagrams(self, strs):
-        hashset = {}
+        hashmap = {}
         for i in strs: 
-            key = ''.join(sorted(i))
-            if key not in hashset:
-                hashset[key] = []
-            hashset[key].append(i)
-        return hashset.values()
+            txt = ''.join(sorted(i))
+            if txt in hashmap:
+                hashmap[txt] += [i]
+            else:
+                hashmap[txt] = [i]
+        return hashmap.values()
+                
+
             
         """
         :type strs: List[str]
