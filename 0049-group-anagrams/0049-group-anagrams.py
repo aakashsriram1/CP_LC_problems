@@ -1,13 +1,14 @@
 class Solution(object):
     def groupAnagrams(self, strs):
         hashmap = {}
-        for i in strs: 
-            txt = ''.join(sorted(i))
-            if txt in hashmap:
-                hashmap[txt] += [i]
+        for i in strs:
+            sortedI = ''.join(sorted(i))
+            if sortedI not in hashmap: 
+                hashmap[sortedI] = [i]
             else:
-                hashmap[txt] = [i]
+                hashmap[sortedI].append(i)
         return hashmap.values()
+            
                 
 
             
