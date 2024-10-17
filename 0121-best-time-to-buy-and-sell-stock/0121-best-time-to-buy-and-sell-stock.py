@@ -1,16 +1,17 @@
 class Solution(object):
     def maxProfit(self, prices):
-        ptr1 = 0 
-        ptr2 = 1 
-        profit = 0 
-        while ptr2 < len(prices): 
-            if prices[ptr1] < prices[ptr2]: 
-                profit = max(profit, prices[ptr2] - prices[ptr1])
+        p1 = 0 
+        p2 = 1 
+        maxx = 0 
+        while p2 < len(prices): 
+            price = prices[p2] - prices[p1]
+            maxx = max(price,maxx)
+            if prices[p2] < prices[p1]: 
+                p1 = p2
+                p2 = p2 + 1 
             else: 
-                ptr1 = ptr2 
-            ptr2 = ptr2 + 1
-        return profit
-
+                p2 = p2 + 1
+        return maxx
         """
         :type prices: List[int]
         :rtype: int
