@@ -1,12 +1,12 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        hashset = {}
+        dictionary = {}
+        
         for i in range(len(nums)): 
-            complement = target - nums[i]
-            if complement in hashset: 
-                return hashset[complement],i
-            hashset[nums[i]] = i 
-            
+            complement = target - nums[i] 
+            if complement in dictionary: 
+                return [dictionary[complement], i]
+            dictionary[nums[i]] = i
             
         
         """
