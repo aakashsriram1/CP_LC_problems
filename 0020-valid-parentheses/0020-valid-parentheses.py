@@ -1,19 +1,16 @@
 class Solution(object):
     def isValid(self, s):
-        
         stack = []
-        map = {')' : '(', '}' : '{', ']': '['}
-        
+        dictionary = {')' : '(','}' : '{',']' : '['}
         for i in s: 
-            if i in map:
-                if stack and stack[-1] == map[i]:
+            if i in dictionary: 
+                if stack and stack[-1] == dictionary[i]:
                     stack.pop()
                 else:
                     return False
             else:
                 stack.append(i)
         return not stack 
-                
             
                 
         """
